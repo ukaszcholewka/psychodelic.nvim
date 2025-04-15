@@ -34,7 +34,7 @@ end, {})
 vim.api.nvim_create_autocmd("OptionSet", {
   pattern = "background",
   callback = function()
-    if vim.g.cyberdream_opts.variant ~= "auto" or vim.fn.execute("colorscheme"):find("psychodelic") == nil then
+    if vim.g.cyberdream_opts.variant ~= "auto" or vim.fn.execute("colorscheme"):find("cyberdream") == nil then
       return
     end
     util.toggle_lualine_theme()
@@ -54,7 +54,7 @@ vim.api.nvim_create_autocmd("User", {
     local bufcontent = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
 
     for _, line in ipairs(bufcontent) do
-      if line:find("psychodelic") then
+      if line:find("cyberdream") then
         require("cyberdream.cache").build(theme.setup())
         return
       end
